@@ -11,7 +11,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      //console.log("Attempting login with", { email, password }); // Log the credentials
+      
       const response = await axios.post(
         "http://localhost:5000/api/users/login",
         {
@@ -19,8 +19,8 @@ function Login() {
           password,
         }
       );
-      localStorage.setItem("token", response.data.token); // Save the token
-      navigate("/chart"); // Redirect to chart page or dashboard
+      localStorage.setItem("token", response.data.token); 
+      navigate("/chart"); 
     } catch (error) {
       console.error("Login failed:", error.response?.data || error.message);
       alert(error.response?.data?.msg || "Login failed. Please try again.");

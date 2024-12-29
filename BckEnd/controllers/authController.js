@@ -35,7 +35,7 @@ const registerUser = async (req, res) => {
   }
 };
 
-// Authenticate a user
+
 const authUser = async (req, res) => {
   const { email, password } = req.body;
 
@@ -44,13 +44,11 @@ const authUser = async (req, res) => {
       return res.status(400).json({ msg: "Please provide both email and password" });
     }
 
-    // Find the user by email
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({ msg: "Invalid credentials" });
     }
 
-    // Compare entered password with the stored password
     const isPasswordMatch = await bcrypt.compare(password, user.password);
     if (!isPasswordMatch) {
       return res.status(401).json({ msg: "Invalid credentials" });

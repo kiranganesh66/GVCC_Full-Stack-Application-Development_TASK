@@ -8,7 +8,7 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("user"); // default role is 'user'
+  const [role, setRole] = useState("user"); 
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
@@ -20,7 +20,7 @@ function Register() {
         password,
         role,
       });
-      navigate("/login"); // Redirect to login page after successful registration
+      navigate("/login"); 
     } catch (error) {
       console.error(error);
       alert("Error registering user");

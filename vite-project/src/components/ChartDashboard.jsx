@@ -11,7 +11,7 @@ import {
 } from "recharts";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../styles/ChartDashboard.css"; // External CSS file for additional styling.
+import "../styles/ChartDashboard.css"; 
 
 function ChartDashboard() {
   const [chartData, setChartData] = useState([]);
@@ -39,7 +39,7 @@ function ChartDashboard() {
         if (error.response && error.response.status === 401) {
           alert("Session expired. Please log in again.");
           localStorage.removeItem("token");
-          navigate("/login"); // Redirect to login page.
+          navigate("/login"); 
         } else {
           alert("Failed to fetch chart data. Please try again.");
         }
